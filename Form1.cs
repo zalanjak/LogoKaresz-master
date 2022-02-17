@@ -204,15 +204,112 @@ namespace LogoKaresz
             }
         }
 		#endregion
+
+		void kocka(int év, double méret)
+        {
+            if (év==1)
+            {
+				Előre(méret);
+            }
+			else if (év > 1)
+            {
+				kocka(év - 1, méret / 4);
+				Balra(90);
+				kocka(év - 1, méret / 4);
+				Jobbra(90);
+				kocka(év - 1, méret / 4);
+				Jobbra(90);
+				kocka(év - 1, méret / 4);
+				kocka(év - 1, méret / 4);
+				Balra(90);
+				kocka(év - 1, méret / 4);
+				Balra(90);
+				kocka(év - 1, méret / 4);
+				Jobbra(90);
+				kocka(év - 1, méret / 4);
+
+
+			}
+
+		}
+
+		void Hegycsúcs(int év, double méret)
+        {
+            if (év==1)
+            {
+				Előre(méret);
+            }
+			else if (év > 1)
+            {
+			Hegycsúcs(év - 1, méret / 4);
+			Balra(60);
+			Hegycsúcs(év - 1, méret / 4);
+			Jobbra(120);
+			Hegycsúcs(év - 1, méret / 4);
+			Hegycsúcs(év - 1, méret / 4);
+			Balra(120);
+			Hegycsúcs(év - 1, méret / 4);
+			Jobbra(60);
+			Hegycsúcs(év - 1, méret / 4);
+
+            }
+			
+
+
+		}
+
+		void Nehéz_négyzet_jobbra(int év, double méret)
+		{
+			if (év == 1)
+			{
+				Előre(méret);
+			}
+			else if (év > 1)
+            {
+				Nehéz_négyzet_jobbra(év - 1, méret / 3);
+				Balra(90);
+				Nehéz_négyzet_balra(év - 1, méret / 3);
+				Jobbra(90);
+				Nehéz_négyzet_jobbra(év - 1, méret / 3);
+				Jobbra(90);
+				Nehéz_négyzet_balra(év - 1, méret / 3);
+				Balra(90);
+				Nehéz_négyzet_jobbra(év - 1, méret / 3);
+			}
+		}
+		void Nehéz_négyzet_balra(int év, double méret)
+		{
+			if (év == 1)
+			{
+				Előre(méret);
+			}
+			else if (év > 1)
+			{
+				Nehéz_négyzet_balra(év - 1, méret / 3);
+				Jobbra(90);
+				Nehéz_négyzet_jobbra (év -1, méret / 3);
+				Balra(90);
+				Nehéz_négyzet_balra(év - 1, méret / 3);
+				Balra(90);
+				Nehéz_négyzet_jobbra (év -1, méret / 3);
+				Jobbra(90);
+				Nehéz_négyzet_balra(év - 1, méret / 3);
+
+
+
+
+
+			}
+		}
 		/* Függvények vége */
 		void FELADAT()
-		{
+
+		{ 
+			Teleport(közép.X-350, közép.Y+150, kelet);
 			
-			Teleport(közép.X-100, közép.Y+100, dél);
-			
-			using (new Frissítés(true))
+			using (new Frissítés(false))
 			{
-				fra5(5 ,2, 100); 
+				Nehéz_négyzet_jobbra(6, 700);
 			}
 		}
 	}
